@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Play | Platform Jump</title>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #0a0a0a;
+      font-family: 'Urbanist', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0a0a0a;
+      z-index: 9999;
+      transition: opacity 1s ease, visibility 1s ease;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #loader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .privacy-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      background-color: transparent;
+      text-align: center;
+      color: #ffffff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .privacy-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .privacy-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #ffffff;
+    }
+
+    .privacy-list {
+      list-style: disc inside;
+      padding-left: 20px;
+      color: #bbbbbb;
+      font-size: 1.2rem;
+      line-height: 1.7;
+    }
+
+    .privacy-list li {
+      margin-bottom: 20px;
+    }
+
+    .back-home-button {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 14px 34px;
+      background-color: #ffffff;
+      color: #0a0a0a;
+      font-weight: 600;
+      border-radius: 30px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-home-button:hover {
+      background-color: #dddddd;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="particles-canvas"></canvas>
+<div id="loader"></div>
+
+<main>
+  <section id="how-to-play-page" class="privacy-section">
+    <div class="privacy-content">
+      <h1>How to Play</h1>
+
+      <ul class="privacy-list">
+        <li><strong>Single Tap Jump:</strong> One tap = one jump. Timing is everything.</li>
+        <li><strong>Vertical Only:</strong> There is no left or right movement — just upward precision.</li>
+        <li><strong>Perfect Landing Bonus:</strong> Landing dead-center increases your multiplier: x2 → x3 → x4. A single mistake resets it.</li>
+        <li><strong>Increasing Difficulty:</strong> Platforms accelerate over time, testing your focus and rhythm.</li>
+        <li><strong>Watch for Hazards:</strong> Some platforms have deadly spikes. Land accurately or it's game over.</li>
+        <li><strong>Unlock Rewards:</strong> Hit milestones to collect new skins for your ball.</li>
+        <li><strong>Music Track Selection:</strong> You can change the background music anytime through the settings menu. Find your perfect rhythm while playing. (More tracks will be added in the future)</li>
+        <li><strong>Offline Play:</strong> Fully playable without internet connection.</li>
+      </ul>
+
+      <!-- PLATFORMS SECTION -->
+      <section class="platform-section" style="padding: 60px 20px; color: white; max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 40px;">Platform Types</h2>
+        <div class="platform-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px;">
+        
+          <div class="platform-item" style="background: #111; border-radius: 16px; padding: 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center;">
+            <img src="assets/platforms/static.png" alt="Static Platform" style="width: 80%; max-width: 160px; border-radius: 12px; margin-bottom: 20px;">
+            <h3>Normal Platform</h3>
+            <p>Safe and static. Only danger — missing the jump.</p>
+          </div>
+
+          <div class="platform-item" style="background: #111; border-radius: 16px; padding: 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center;">
+            <img src="assets/platforms/falling.png" alt="Falling Platform" style="width: 80%; max-width: 160px; border-radius: 12px; margin-bottom: 20px;">
+            <h3>Falling Platform</h3>
+            <p>Disappears if you stay too long. Jump quickly or fall.</p>
+          </div>
+
+          <div class="platform-item" style="background: #111; border-radius: 16px; padding: 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center;">
+            <img src="assets/platforms/spike-left.png" alt="Spike Left Platform" style="width: 80%; max-width: 160px; border-radius: 12px; margin-bottom: 20px;">
+            <h3>Left-Spike Platform</h3>
+            <p>Landing too far left will result in instant death.</p>
+          </div>
+
+          <div class="platform-item" style="background: #111; border-radius: 16px; padding: 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center;">
+            <img src="assets/platforms/spike-right.png" alt="Spike Right Platform" style="width: 80%; max-width: 160px; border-radius: 12px; margin-bottom: 20px;">
+            <h3>Right-Spike Platform</h3>
+            <p>Landing too far right will result in instant death.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <a href="index.html" class="back-home-button">← Back to Home</a>
+    </div>
+  </section>
+</main>
+
+<script>
+  const loader = document.getElementById('loader');
+  requestAnimationFrame(() => loader.classList.add('fade-out'));
+
+  const canvas = document.getElementById('particles-canvas');
+  const ctx = canvas.getContext('2d');
+  let particlesArray;
+  const numberOfParticles = 80;
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.speedX = Math.random() * 0.5 - 0.25;
+      this.speedY = Math.random() * 0.5 - 0.25;
+      this.size = Math.random() * 1.5 + 0.5;
+      this.opacity = Math.random() * 0.1 + 0.05;
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x > canvas.width) this.x = 0;
+      if (this.x < 0) this.x = canvas.width;
+      if (this.y > canvas.height) this.y = 0;
+      if (this.y < 0) this.y = canvas.height;
+    }
+    draw() {
+      ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+    }
+  }
+
+  function init() {
+    particlesArray = [];
+    for (let i = 0; i < numberOfParticles; i++) {
+      particlesArray.push(new Particle());
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particlesArray.length; i++) {
+      particlesArray[i].update();
+      particlesArray[i].draw();
+    }
+    requestAnimationFrame(animate);
+  }
+
+  init();
+  animate();
+</script>
+
+</body>
+</html>

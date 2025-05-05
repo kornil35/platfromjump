@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Platform Jump — Minimal Arcade Game for iOS & Android</title>
+    <meta name="description" content="Platform Jump is a dynamic, minimalistic arcade game for iOS and Android. Jump higher, unlock skins, and set new records! Play offline, enjoy smooth physics, and challenge yourself.">
+    <meta name="keywords" content="Platform Jump, arcade game, mobile game, iOS, Android, minimal, offline, skins, leaderboard, jump, platformer, casual game, physics">
+    <meta name="author" content="Platform Jump Team">
+    <link rel="canonical" href="https://platformjump.com/">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Platform Jump — Minimal Arcade Game for iOS & Android">
+    <meta property="og:description" content="Jump higher, unlock skins, and set new records in Platform Jump! Available for iOS and Android. Play offline and enjoy smooth physics.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://platformjump.com/">
+    <meta property="og:image" content="https://platformjump.com/assets/images/og-image.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Platform Jump — Minimal Arcade Game for iOS & Android">
+    <meta name="twitter:description" content="Jump higher, unlock skins, and set new records in Platform Jump! Available for iOS and Android. Play offline and enjoy smooth physics.">
+    <meta name="twitter:image" content="https://platformjump.com/assets/images/og-image.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+    <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body>
+    <canvas id="particles-canvas"></canvas>
+    <div id="loader"></div>
+    <div class="navbar">
+      <div class="navbar-inner">
+      <div class="nav-content" id="nav-links">
+        <a href="#home">Home</a>
+        <a href="#features-section">Features</a>
+        <a href="#screenshots-section">Screenshots</a>
+        <a href="#about-section">About</a>
+        <a href="guide.html">How to Play</a>
+        <a href="#download-section">Download</a>
+      </div>
+      <div class="burger" id="burger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+        </div>
+        <div class="lang-switcher" id="lang-switcher" style="display: none;">
+          <button data-lang="en" class="lang-btn active" disabled>EN</button>
+          <button data-lang="ru" class="lang-btn" disabled>RU</button>
+        </div>
+      </div>
+    </div>
+    
+    
+    <main>
+
+      <!-- Первая секция: Заголовок и анимация -->
+<div class="content" id="home">
+        <div class="arrow-down" id="scroll-arrow">
+          <img src="assets/images/arrow-down.png" alt="Scroll Down Arrow for Platform Jump">
+        </div>
+        <div class="text-block">
+          <h1>Platform Jump</h1>
+          <p>Jump higher, play faster!</p>
+        </div>
+
+        <div class="animation-block">
+          <div class="platform"></div>
+          <div class="ball"></div>
+        </div>
+      </div>
+
+      <!-- Вторая секция: Описание игры -->
+      <section id="description-section" class="reveal">
+        <div class="description-content">
+          <h2>Jump Higher. Play Faster.</h2>
+          <p>Platform Jump is a dynamic arcade game where every leap brings you closer to a new record. Minimalism, style, and pure drive.</p>
+          <div class="discover-button">
+            <a href="#features-section">Discover Features</a>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- Третья секция: Фишки игры -->
+<section id="features-section">
+  <div class="features">
+    
+    <div class="feature-item">
+      <div class="feature-text">
+        <h4>Smooth Physics-Based Gameplay</h4>
+        <p>Experience buttery-smooth physics and perfect timing.</p>
+      </div>
+      <div class="feature-icon">
+        <img src="assets/images/physics.png" alt="Physics-based gameplay icon">
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">
+        <img src="assets/images/skill.png" alt="Skill challenge icon">
+      </div>
+      <div class="feature-text">
+        <h4>Minimalistic Skill Challenge</h4>
+        <p>Pure, clean design focused on your true jumping skills.</p>
+      </div>
+    </div>
+    
+
+    <div class="feature-item">
+      <div class="feature-text">
+        <h4>Set New Personal Records</h4>
+        <p>Always push your limits and beat your highest scores.</p>
+      </div>
+      <div class="feature-icon">
+        <img src="assets/images/record.png" alt="Leaderboard and records icon">
+      </div>
+    </div>
+
+    <div class="feature-item reversed">
+      <div class="feature-icon">
+        <img src="assets/images/customize.png" alt="Ball customization icon">
+      </div>
+      <div class="feature-text">
+        <h4>Customize Your Ball</h4>
+        <p>Unlock new skins and make your ball truly yours.</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-text">
+        <h4>Reach for the Stars</h4>
+        <p>Jump beyond platforms and conquer outer space.</p>
+      </div>
+      <div class="feature-icon">
+        <img src="assets/images/space.png" alt="Space and stars icon">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Блок скриншотов -->
+<section id="screenshots-section" class="reveal">
+  <h2>In-Game Screenshots</h2>
+  <div class="carousel-container">
+    <div class="carousel">
+      <img src="assets/screenshots/screenshot1.png" class="carousel-img active" alt="Platform Jump gameplay screenshot 1">
+      <img src="assets/screenshots/screenshot2.png" class="carousel-img next" alt="Platform Jump gameplay screenshot 2">
+      <img src="assets/screenshots/screenshot3.png" class="carousel-img prev" alt="Platform Jump gameplay screenshot 3">
+    </div>
+  </div>
+      <!-- Добавишь сколько нужно -->
+    </div>
+  </div>
+</section>
+
+<section id="about-section" class="reveal">
+  <div class="about-content">
+    <h2>About Platform Jump</h2>
+    <p>
+      Platform Jump was born from a simple idea: pure skill, pure movement. 
+      I wanted to create a game that brings back the feeling of mastering every jump without distractions.
+      Clean design, responsive controls, and an endless chase for the next high score — that's what defines Platform Jump.
+    </p>
+  </div>
+</section>
+
+<section id="faq-section" class="reveal">
+  <div class="faq-content">
+    <h2>FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question-row">
+          <span class="faq-icon">
+            <span class="faq-icon-bar first"></span>
+            <span class="faq-icon-bar second"></span>
+          </span>
+          <span class="faq-question">Когда выйдет Platform Jump?</span>
+        </div>
+        <div class="faq-answer">Релиз игры запланирован на 10 августа.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question-row">
+          <span class="faq-icon">
+            <span class="faq-icon-bar first"></span>
+            <span class="faq-icon-bar second"></span>
+          </span>
+          <span class="faq-question">На каких устройствах будет доступна игра?</span>
+        </div>
+        <div class="faq-answer">Platform Jump будет доступна для устройств на базе iOS и Android.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question-row">
+          <span class="faq-icon">
+            <span class="faq-icon-bar first"></span>
+            <span class="faq-icon-bar second"></span>
+          </span>
+          <span class="faq-question">Будет ли игра бесплатной?</span>
+        </div>
+        <div class="faq-answer">Да, игра будет распространяться бесплатно.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question-row">
+          <span class="faq-icon">
+            <span class="faq-icon-bar first"></span>
+            <span class="faq-icon-bar second"></span>
+          </span>
+          <span class="faq-question">Какие есть скины/кастомизация?</span>
+        </div>
+        <div class="faq-answer">В игре доступно множество уникальных скинов для персонализации игрового шарика.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question-row">
+          <span class="faq-icon">
+            <span class="faq-icon-bar first"></span>
+            <span class="faq-icon-bar second"></span>
+          </span>
+          <span class="faq-question">Какой минимальный Android/iOS нужен для запуска?</span>
+        </div>
+        <div class="faq-answer">Для запуска потребуется современное устройство на базе Android или iOS, соответствующее актуальным стандартам.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question-row">
+          <span class="faq-icon">
+            <span class="faq-icon-bar first"></span>
+            <span class="faq-icon-bar second"></span>
+          </span>
+          <span class="faq-question">Как связаться с поддержкой?</span>
+        </div>
+        <div class="faq-answer">Вы можете связаться с поддержкой по адресу: support@platformjump.com</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question-row">
+          <span class="faq-icon">
+            <span class="faq-icon-bar first"></span>
+            <span class="faq-icon-bar second"></span>
+          </span>
+          <span class="faq-question">Планируется ли поддержка других языков?</span>
+        </div>
+        <div class="faq-answer">В настоящее время поддержка других языков не планируется.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="download-section">
+  <div class="download-content">
+    <h2>Download Platform Jump</h2>
+    <p>Coming soon to your favorite devices!</p>
+    <div class="download-buttons">
+      <a class="store-button disabled">
+        <img src="assets/images/appstore.png" alt="App Store badge">
+      </a>
+      <a class="store-button disabled">
+        <img src="assets/images/googleplay.png" alt="Google Play badge">
+      </a>
+    </div>
+
+    <p class="release-date">Coming August 10, 2025</p> <!-- ⬅️ вот эта строка -->
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-sections">
+      
+      <div class="footer-section">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features-section">Features</a></li>
+          <li><a href="#screenshots-section">Screenshots</a></li>
+          <li><a href="#about-section">About</a></li>
+          <li><a href="guide.html">How to Play</a></li>
+          <li><a href="#download-section">Download</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:support@platformjump.com">support@platformjump.com</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-socials">
+      <a href="https://facebook.com/PlatformJump" target="_blank" aria-label="Facebook">
+        <img src="assets/icons/facebook.png" alt="Facebook icon">
+      </a>
+      <a href="https://instagram.com/PlatformJump" target="_blank" aria-label="Instagram">
+        <img src="assets/icons/instagram.png" alt="Instagram icon">
+      </a>
+      <a href="https://x.com/PlatformJump" target="_blank" aria-label="X (Twitter)">
+        <img src="assets/icons/x.png" alt="X (Twitter) icon">
+      </a>
+      <a href="https://tiktok.com/@PlatformJump" target="_blank" aria-label="TikTok">
+        <img src="assets/icons/tiktok.png" alt="TikTok icon">
+      </a>
+    </div>
+      
+      <span>© 2025 Platform Jump | Made with ❤️</span>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
